@@ -1,0 +1,55 @@
+bigipVIP:
+  ef1bau:
+    vip: "10.45.14.15"
+    partition: "K8s_ef1bau"
+  ef1moonshot:
+    vip: "10.45.14.12"
+    partition: "K8s_ef1moonshot"
+  epi1kdowa:
+    vip: "10.46.14.107"
+    partition: "K8s_epi1kdowa"
+  epi1kdm2m:
+    vip: "10.46.14.108"
+    partition: "K8s_epi1kdm2m"
+  epi1kim2m:
+    vip: "10.46.76.174"
+    partition: "K8s_epi1kim2m"
+  epi1kibss:
+    vip: "10.46.76.175"
+    partition: "K8s_epi1kibss"
+  epi2kdowa:
+    vip: "10.47.14.107"
+    partition: "K8s_epi2kdowa"
+  epi2kdm2m:
+    vip: "10.47.14.108"
+    partition: "K8s_epi2kdm2m"
+  epi2kim2m:
+    vip: "10.47.76.174"
+    partition: "K8s_epi2kim2m"
+  epi2kibss:
+    vip: "10.47.76.175"
+    partition: "K8s_epi2kibss"
+  es1kdm2m:
+    vip: "10.2.14.190"
+    partition: "K8s_eskdm2m"
+  es1kdowa:
+    vip: "10.2.14.191"
+    partition: "K8s_eskdowa"
+  es1kim2m:
+    vip: "10.2.76.174"
+    partition: "K8s_eskim2m"
+  es1kibss:
+    vip: "10.2.76.175"
+    partition: "K8s_eskibss"
+  es2kdm2m:
+    vip: "10.4.14.190"
+    partition: "K8s_eskdm2m"
+  es2kdowa:
+    vip: "10.4.14.191"
+    partition: "K8s_eskdowa"
+  es2kim2m:
+    vip: "10.4.76.174"
+    partition: "K8s_eskim2m"
+  es2kibss:
+    vip: "10.4.76.175"
+    partition: "K8s_eskibss"

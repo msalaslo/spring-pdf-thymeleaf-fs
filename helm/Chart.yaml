@@ -1,0 +1,14 @@
+apiVersion: v2
+description: Single instance microservice starter chart for Verisure Securitas Direct.
+name: spring-pdf-thymeleaf-fs
+version: 1.0.0
+keywords:
+  - Microservice
+  - Kubernetes
+  - Helm
+  - Chart
+
+dependencies:
+  - name: ms-templates
+    version: 1.3.2
+    repository: https://faas.securitasdirect.local/arm/verisure-helm/

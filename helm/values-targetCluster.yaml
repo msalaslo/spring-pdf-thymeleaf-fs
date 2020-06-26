@@ -1,0 +1,100 @@
+# Please, follow best practices documented at https://github.com/helm/helm/blob/master/docs/chart_best_practices/values.md
+
+# Application metadata
+appNamespace:
+appServiceAccount:
+targetCluster:
+
+# Component metadata used mainly for labels.
+componentType: microservice
+componentManagedBy: ITArchitecture
+
+replicaCount: 1
+nodeSelector: {}
+podAntiAffinity: ""
+tolerations: {} 
+#  - key: "key"
+#    operator: "Equal"
+#    value: "value"
+#    effect: "NoSchedule"
+
+container:
+    image:
+    overrideResources: false
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    livenessProbe:
+      failureThreshold: 10
+      httpGet:
+        path: "/actuator/health"
+        port: 8080
+      initialDelaySeconds: 120
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 20
+    readinessProbe:
+      failureThreshold: 5
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 20
+      httpGet:
+        path: "/actuator/health"
+        port: 8080
+    imagePullPolicy: Never
+
+# Microservice public configuration variables (configmap data).
+# Set "enabled" property to "true" to inject public variables under "data" in the deployement manifest.
+configmap:
+  enabled: false
+  # Data "keys" MUST BE in lowercase.
+  data:
+    my_variable_key: my_variable_value
+
+# Microservice private configuration variables (secret data).
+# Set "enabled" property to "true" to inject secret variables under "data" in the deployement manifest.
+# Secret values MUST be base64 encoded.
+secret:
+  enabled: false
+  data:
+    my_secret_key: my_secret_value_in_b64
+
+# Service values
+service:
+  type: NodePort
+  nodePort: 30600
+  port: 8080
+  targetPort: 8080
+
+# F5 balanced service configuration
+f5:
+  enabled: false
+  frontend:
+    balance: "least-connections-member"
+  backend:
+    healthMonitor:
+      # Accepted values: HTTP / TCP
+      type: HTTP
+      interval: 30
+      # Usually 3 times the interval + 1
+      timeout: 91
+      # Please, be aware of your healthcheck response and CHECK IT. Usually "200" for Tomcat and "200 OK" for Nginx.
+      recv: "200"
+
+hpa: {}
+#  minReplicas: 2
+#  maxReplicas: 3
+#  metrics:
+#  - type: Resource
+#    resource:
+#      name: memory
+#      targetAverageUtilization: 80
+#  - type: Resource 
+#    resource: 
+#      name: cpu 
+#      targetAverageUtilization: 80
