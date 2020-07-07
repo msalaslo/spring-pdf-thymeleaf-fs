@@ -14,7 +14,8 @@ font: Code39.ttf
 
 HTML Template and dependent files are included in src/main/templates
 
-## Author: Miguel Salas López miguel.salas@securitasdirect.es
+### Author
+Miguel Salas López miguel.salas@securitasdirect.es
 
 ### Relevant Articles:
 - [PDF Conversions in Java](https://www.baeldung.com/pdf-conversions-java)
@@ -46,6 +47,7 @@ Test on the browser via SWAGGER
 -------------------
 
 ```sh
+Swagger console:
 http://localhost:8080/swagger-ui.html
 ```
 
